@@ -14,3 +14,4 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::name('nuevoPunto')->post('/punto/nuevo','PuntoEController@nuevoPunto');
