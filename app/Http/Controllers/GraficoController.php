@@ -14,8 +14,9 @@ class GraficoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   $grafico
         //
+        return view('grafico');
     }
 
     /**
