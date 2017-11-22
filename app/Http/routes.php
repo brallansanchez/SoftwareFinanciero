@@ -20,3 +20,4 @@ Route::group(['middleware'=>['web']], function ()
   route::resource('grafico','GraficoController');
 
 });
+Route::name('nuevoPunto')->post('/punto/nuevo','PuntoEController@nuevoPunto');
