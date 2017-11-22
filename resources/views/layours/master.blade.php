@@ -39,6 +39,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="razones">Razones Financieras</a></li>
+            <li><a href="puntoeq">Punto de Equilibrio</a></li>
           <!--  <li><a href="market">Marcas</a></li>-->
           </ul>
 

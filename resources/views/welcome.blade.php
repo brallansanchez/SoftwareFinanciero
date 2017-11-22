@@ -17,7 +17,7 @@
                 <div class=" row">
                     <div class="activos col-md-12">
                         <h3>Calcule de forma sencilla la cantidad mínima de productos que debe vender para que su producción resulte rentable. El punto de equilibrio le mostrará la cantidad para la cual los ingresos totales se igualan a los costos. A partir de ese valor, comenzará a obtener beneficios con cada producto.</h3><hr>
-                       
+
                              <form class="form-horizontal col-md-12" action="{{route('nuevoPunto')}}" method="post">
                                 <label class="col-md-6">Costo Fijo Total</label>
                                 <input type="number" class="form-control col-md-4" id="ventasNetas"  placeholder="Digite el saldo"><br>
@@ -28,8 +28,8 @@
 
                                 <button type="submit" class="btn btn-lg btn-success pull-right">Calcular</button>
                             </form>
-                        
-                        
+
+
                     </div>
 
 

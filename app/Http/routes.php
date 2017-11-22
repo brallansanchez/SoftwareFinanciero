@@ -14,10 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['middleware'=>['web']], function ()
-{
 
-  route::resource('grafico','GraficoController');
-
-});
-Route::name('nuevoPunto')->post('/punto/nuevo','PuntoEController@nuevoPunto');
+Route::get('nuevoPunto')->post('/punto/nuevo','PuntoEController@nuevoPunto');

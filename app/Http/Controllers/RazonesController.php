@@ -5,6 +5,7 @@ namespace SoftwareFinanciero\Http\Controllers;
 use Illuminate\Http\Request;
 
 use SoftwareFinanciero\Http\Requests;
+use SoftwareFinanciero\Razones;
 
 class RazonesController extends Controller
 {
@@ -16,6 +17,7 @@ class RazonesController extends Controller
     public function index()
     {
         //
+      
     }
 
     /**
