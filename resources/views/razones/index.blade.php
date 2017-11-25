@@ -11,10 +11,9 @@
 
    <div class="row">
      <div class="col-md-8">
-@include('partials.message')
         <div class="panel panel-default">
           <div class="panel-heading">
-             Lista
+             Lista de resultados
              <p class="navbar-text navbar-right" style=" margin-top: 1px;">
                 <button type="button" id='nuevo' name='nuevo' class="btn btn-warning navbar-btn" style="margin-bottom: 1px; margin-top: -5px;margin-right: 8px;padding: 3px 20px;">Nuevo</button>
              </p>
@@ -23,19 +22,27 @@
 
              <table class="table table-bordered">
                <thead>
-                  <th>Nombre</th>
-                  <th>Precio</th>
-                  <th>Marca</th>
-                  <th>Acción</th>
+                  <th>Razon de liquidez</th>
+                  <th>Razon de Prueba Acida</th>
+                  <th>Razon de Deuda</th>
+                  <th>Razon de Rotacion de Activos</th>
+                  <th>Dias Pendiente de Cobro</th>
+                  <th>Rotacion de Activo Fijo</th>
+                  <th>Rotacion de Activos Totales</th>
+                  <th>Acciones</th>
                </thead>
                <tbody>
-              @foreach($product as $product)
+              @foreach($razones as $razon)
                <tr>
-                     <td>{{$product->product}}</td>
-                     <td>{{$product->price}}</td>
-                     <td>{{$product->market}}</td>
-                     <td><a href="{{route('product.edit',$product)}}">[Editar]</a>
-                     <a href="{{route('product.show',$product)}}">[Eliminar]</a></td>
+                     <td>{{$razon->liquidez}}</td>
+                     <td>{{$razon->pruebaacida}}</td>
+                     <td>{{$razon->endeudamiento}}</td>
+                     <td>{{$razon->rotacion}}</td>
+                     <td>{{$razon->diaspc}}</td>
+                     <td>{{$razon->raf}}</td>
+                     <td>{{$razon->rat}}</td>
+                     <td><a href="{{route('razones.edit',$razon)}}">[Editar]</a>
+                     <a href="{{route('razones.show',$razon)}}">[Eliminar]</a></td>
                   </tr>
                   @endforeach
                </tbody>
@@ -52,7 +59,7 @@
    </div>
 <script>
 $('#nuevo').click(function(event){
-    document.location.href="{{route('product.create')}}";
+    document.location.href="{{route('razones.create')}}";
 });
 </script>
 

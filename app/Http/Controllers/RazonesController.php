@@ -5,6 +5,7 @@ namespace SoftwareFinanciero\Http\Controllers;
 use Illuminate\Http\Request;
 
 use SoftwareFinanciero\Http\Requests;
+use SoftwareFinanciero\Razones;
 
 class RazonesController extends Controller
 {
@@ -15,7 +16,14 @@ class RazonesController extends Controller
      */
     public function index()
     {
-        //
+     $razones= Razones::select(
+       'razon.activocorriente','razon.pasivocorriente',
+       'razon.inventario','razon.activototal',
+       'razon.deudatotal','razon.venta',
+       'razon.cuentapcobrar','razon.activofijo',
+     'razon.liquidez','razon.pruebaacida',
+     'razon.endeudamiento','razon.rotacion','razon.diaspc','razon.raf','razon.rat')->get();
+     return view('razones.index')->with('razones',$razones);
     }
 
     /**
@@ -26,6 +34,7 @@ class RazonesController extends Controller
     public function create()
     {
         //
+        return view('razones.create');
     }
 
     /**
@@ -37,6 +46,9 @@ class RazonesController extends Controller
     public function store(Request $request)
     {
         //
+        $razones=Razones::create($request->all());
+        $razones->liquidez=razonL();
+        return redirect()->route('razones.index');
     }
 
     /**
@@ -48,6 +60,8 @@ class RazonesController extends Controller
     public function show($id)
     {
         //
+        $razones = Razones::FindOrFail($id);
+       return view('razones.show')->with('razones',$razones);
     }
 
     /**
@@ -59,6 +73,9 @@ class RazonesController extends Controller
     public function edit($id)
     {
         //
+        $razones = Product::FindOrFail($id);
+        return
+        view('razones.edit');
     }
 
     /**
@@ -71,6 +88,12 @@ class RazonesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $razones = Razones::FindOrFail($id);
+        $input = $request->all();
+
+        $razones->fill($input)->save();
+
+        return redirect()->route('razones.index');
     }
 
     /**
@@ -82,5 +105,11 @@ class RazonesController extends Controller
     public function destroy($id)
     {
         //
+        $razones = Razones::FindOrFail($id);
+        $input = $request->all();
+
+        $razones->fill($input)->destroy();
+
+        return redirect()->route('razones.index');
     }
 }
