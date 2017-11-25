@@ -46,8 +46,25 @@ class RazonesController extends Controller
     public function store(Request $request)
     {
         //
-        $razones=Razones::create($request->all());
-        $razones->liquidez=razonL();
+
+        $razon = new Razones;
+    	  $razon->activocorriente=$request->get('activocorriente');
+        $razon->pasivocorriente=$request->get('pasivocorriente');
+        $razon->inventario=$request->get('inventario');
+        $razon->activototal=$request->get('activototal');
+        $razon->deudatotal=$request->get('deudatotal');
+        $razon->venta=$request->get('venta');
+        $razon->cuentapcobrar=$request->get('cuentapcobrar');
+        $razon->activofijo=$request->get('activofijo');
+
+        $razon->liquidez=razonL($razon->activocorriente,$razon->pasivocorriente);
+        $razon->pruebaacida=ranzonR($razon->activocorriente,$razon->inventario,
+        $razon->pasivocorriente);
+        $razon->rotacion=rotacionInvntario($razon->venta,$razon->inventario);
+        $razon->diaspc=dso($razon->cuentapcobrar,$razon->venta);
+        $razon->raf=rotacionAF($razon->venta,$razon->activofijo);
+        $razon->rat=rotacionAT($razon->venta,$razon->activototal);
+        $razon->endeudamiento=razonD($razon->deudatotal,$razon->activototal);
         return redirect()->route('razones.index');
     }
 
