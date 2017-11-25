@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Calculadora Financiera@yield('title')::</title>
+    <title>Calculadora Financiera::@yield('title')::</title>
 
     <!-- Bootstrap -->
 
@@ -38,7 +38,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="razones">Razones Financieras</a></li>
+            <li><a href="{{url('razones')}}">Razones Financieras</a></li>
           <!--  <li><a href="market">Marcas</a></li>-->
           </ul>
 

@@ -22,7 +22,7 @@ class RazonesController extends Controller
        'razon.deudatotal','razon.venta',
        'razon.cuentapcobrar','razon.activofijo',
      'razon.liquidez','razon.pruebaacida',
-     'razon.endeudamiento','razon.rotacion','razon.diaspc','razon.raf','razon.rat')->get();
+     'razon.endeudamiento','razon.rotacion','razon.diaspc','razon.raf','razon.rat')->paginate(5);
      return view('razones.index')->with('razones',$razones);
     }
 
@@ -47,24 +47,23 @@ class RazonesController extends Controller
     {
         //
 
-        $razon = new Razones;
-    	  $razon->activocorriente=$request->get('activocorriente');
-        $razon->pasivocorriente=$request->get('pasivocorriente');
-        $razon->inventario=$request->get('inventario');
-        $razon->activototal=$request->get('activototal');
-        $razon->deudatotal=$request->get('deudatotal');
-        $razon->venta=$request->get('venta');
-        $razon->cuentapcobrar=$request->get('cuentapcobrar');
-        $razon->activofijo=$request->get('activofijo');
-
-        $razon->liquidez=razonL($razon->activocorriente,$razon->pasivocorriente);
-        $razon->pruebaacida=ranzonR($razon->activocorriente,$razon->inventario,
-        $razon->pasivocorriente);
-        $razon->rotacion=rotacionInvntario($razon->venta,$razon->inventario);
-        $razon->diaspc=dso($razon->cuentapcobrar,$razon->venta);
-        $razon->raf=rotacionAF($razon->venta,$razon->activofijo);
-        $razon->rat=rotacionAT($razon->venta,$razon->activototal);
-        $razon->endeudamiento=razonD($razon->deudatotal,$razon->activototal);
+        $razones = new Razones;
+    	  $razones->activocorriente=$request->get('activocorriente');
+        $razones->pasivocorriente=$request->get('pasivocorriente');
+        $razones->inventario=$request->get('inventario');
+        $razones->activototal=$request->get('activototal');
+        $razones->deudatotal=$request->get('deudatotal');
+        $razones->venta=$request->get('venta');
+        $razones->cuentapcobrar=$request->get('cuentapcobrar');
+        $razones->activofijo=$request->get('activofijo');
+        $razones->liquidez=razonL($razones->activocorriente,$razones->pasivocorriente);
+        $razones->pruebaacida=ranzonR($razones->activocorriente,$razones->inventario,
+        $razones->pasivocorriente);
+        $razones->rotacion=rotacionInvntario($razones->venta,$razones->inventario);
+        $razones->diaspc=dso($razones->cuentapcobrar,$razones->venta);
+        $razones->raf=rotacionAF($razones->venta,$razones->activofijo);
+        $razones->rat=rotacionAT($razones->venta,$razones->activototal);
+        $razones->endeudamiento=razonD($razones->deudatotal,$razones->activototal);
         return redirect()->route('razones.index');
     }
 
