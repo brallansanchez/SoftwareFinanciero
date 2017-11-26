@@ -5,10 +5,7 @@
 @section('content')
 
    <!-- Main component for a primary marketing message or call to action -->
-   <ol class="breadcrumb">
-     <li><a href="{{url('dashboard')}}">Principal</a></li>
-     <li class="active">Razones Financieras</li>
-   </ol>
+
    <div class="page-header">
      <h1>Razones Financieras</h1>
    </div>
@@ -46,8 +43,8 @@
                      <td>{{$razon->raf}}</td>
                      <td>{{$razon->rat}}</td>
 
-                     <td><a href="{{route('razones.edit',$razon)}}">[Editar]</a>
-                     <a href="{{route('razones.show',$razon)}}">[Eliminar]</a></td>
+                     <td><a href="{{route('razones.show',$razon)}}">[Eliminar]</a>
+                    <!-- <a href="{{route('razones.show',$razon)}}">[Eliminar]</a>--></td>
                   </tr>
                   @endforeach
                </tbody>

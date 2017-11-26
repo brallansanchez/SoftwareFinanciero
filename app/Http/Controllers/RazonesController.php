@@ -16,10 +16,7 @@ class RazonesController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        //
-      
-=======
+
      $razones= Razones::select(
        'razon.activocorriente','razon.pasivocorriente',
        'razon.inventario','razon.activototal',
@@ -28,7 +25,7 @@ class RazonesController extends Controller
      'razon.liquidez','razon.pruebaacida',
      'razon.endeudamiento','razon.rotacion','razon.diaspc','razon.raf','razon.rat')->paginate(2);
      return view('razones.index')->with('razones',$razones);
->>>>>>> razones
+
     }
 
     /**

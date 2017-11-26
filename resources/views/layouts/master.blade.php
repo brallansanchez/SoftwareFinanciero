@@ -38,12 +38,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-<<<<<<< HEAD:resources/views/layours/master.blade.php
+
             <li><a href="razones">Razones Financieras</a></li>
             <li><a href="puntoeq">Punto de Equilibrio</a></li>
-=======
-            <li><a href="{{url('razones')}}">Razones Financieras</a></li>
->>>>>>> razones:resources/views/layouts/master.blade.php
+
+
           <!--  <li><a href="market">Marcas</a></li>-->
           </ul>
 

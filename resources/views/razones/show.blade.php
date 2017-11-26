@@ -7,7 +7,7 @@
    <ol class="breadcrumb">
      <li><a href="{{url('dashboard')}}">Escritorio</a></li>
      <li><a href="{{url('dashboard')}}">Razones Financieras</a></li>
-    <li class="active">Editar Datos de Razones Financieras/li>
+    <li class="active">Eliminar Datos de Razones Financieras/li>
 
    </ol>
 
@@ -25,9 +25,10 @@
                <label for="exampleInputPassword1">DESA ELIMINAR ESTE REGISTRO</label>
                    </div>
              <div class="form-group">
-                {!!form::label('Activo Circulante')!!}
-                {!!$razon->activocorriente!!}
+                {!!form::label('Datos')!!}
+                {!!$razon->idrazon!!}
              </div>
+             <!--
                <div class="form-group">
                 {!!form::label('Pasivo Circulante')!!}
                 {!!$razon->pasivocorriente!!}
@@ -84,9 +85,12 @@
              <div class="form-group">
               {!!form::label('Rotacion de Activos Totales')!!}
               {!!$razon->rat!!}
-           </div>
-                 {!!form::submit('Eliminar',['name'=>'eliminar','id'=>'eliminar','content'=>'<span>Eliminar</span>','class'=>'btn btn-warning btn-sm m-t-10'])!!}
-                 <button type='button' id='cancelar' class='btn btn-default btn-sm m-t-10'>Cancelar</button>
+           </div>-->
+                 {!!form::submit('Eliminar',['name'=>'eliminar',
+                 'id'=>'eliminar','content'=>'<span>Eliminar</span>',
+                 'class'=>'btn btn-warning btn-sm m-t-10'])!!}
+                 <button type='button' id='cancelar'
+                  class='btn btn-default btn-sm m-t-10'>Cancelar</button>
           {!!Form::close()!!}
 
           </div>

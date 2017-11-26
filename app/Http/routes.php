@@ -15,12 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::name('nuevoPunto')->post('/punto/nuevo','PuntoEController@nuevoPunto');
+//Route::name('nuevoPunto')->post('/punto/nuevo','PuntoEController@nuevoPunto');
 
 Route::group(['middleware'=>['web']], function ()
 {
 	route::resource('razones', 'RazonesController');
   route::resource('dashboard','DashboardController');
 });
-
-Route::get('nuevoPunto')->post('/punto/nuevo','PuntoEController@nuevoPunto');
+//Route::get('nuevoPunto')->post('/punto/nuevo','PuntoEController@nuevoPunto');

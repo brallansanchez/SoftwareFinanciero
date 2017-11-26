@@ -5,8 +5,7 @@
 @section('content')
 <!-- Main component for a primary marketing message or call to action -->
 <ol class="breadcrumb">
-   <li><a href="{{url('dashboard')}}">Principal</a></li>
-   <li><a href="{{url('razones')}}">Razones Financiera</a></li>
+
    <li class="active">Nuevos Datos de Razones Financieras</li>
  </ol>
 
