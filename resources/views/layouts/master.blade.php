@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Developers::@yield('title')::</title>
+    <title>Calculadora Financiera::@yield('title')::</title>
 
     <!-- Bootstrap -->
 
@@ -30,16 +30,20 @@
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <span class="icon-bar">Menu Principal</span>
+            <span class="icon-bar">Razones Financieras</span>
+            <span class="icon-bar">Punto de Equilibrio</span>
           </button>
           <a class="navbar-brand" href="#"> <img src="img/logo.png" alt=""/> </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
+<<<<<<< HEAD:resources/views/layours/master.blade.php
             <li><a href="razones">Razones Financieras</a></li>
             <li><a href="puntoeq">Punto de Equilibrio</a></li>
+=======
+            <li><a href="{{url('razones')}}">Razones Financieras</a></li>
+>>>>>>> razones:resources/views/layouts/master.blade.php
           <!--  <li><a href="market">Marcas</a></li>-->
           </ul>
 

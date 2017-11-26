@@ -23,7 +23,8 @@ class Razones extends Model
       'endeudamiento',
       'rotacion',
       'diaspc',
-      'raf'
+      'raf',
+      'rat'
     ];
     public $timestamps = false;
   }
