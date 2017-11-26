@@ -14,14 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
 
-=======
-//route::name('nuevoPunto')->post('/punto/nuevo','PuntoEController@nuevoPunto');
+Route::name('nuevoPunto')->post('/punto/nuevo','PuntoEController@nuevoPunto');
+
 Route::group(['middleware'=>['web']], function ()
 {
 	route::resource('razones', 'RazonesController');
   route::resource('dashboard','DashboardController');
 });
->>>>>>> razones
+
 Route::get('nuevoPunto')->post('/punto/nuevo','PuntoEController@nuevoPunto');
