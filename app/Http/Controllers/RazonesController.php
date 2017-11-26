@@ -48,22 +48,23 @@ class RazonesController extends Controller
         //
 
         $razones = new Razones;
-    	  $razones->activocorriente=$request->get('activocorriente');
-        $razones->pasivocorriente=$request->get('pasivocorriente');
-        $razones->inventario=$request->get('inventario');
-        $razones->activototal=$request->get('activototal');
-        $razones->deudatotal=$request->get('deudatotal');
-        $razones->venta=$request->get('venta');
-        $razones->cuentapcobrar=$request->get('cuentapcobrar');
-        $razones->activofijo=$request->get('activofijo');
-        $razones->liquidez=razonL($razones->activocorriente,$razones->pasivocorriente);
-        $razones->pruebaacida=ranzonR($razones->activocorriente,$razones->inventario,
+    	  $activocorriente=$request->get('activocorriente');
+        $pasivocorriente=$request->get('pasivocorriente');
+        $inventario=$request->get('inventario');
+        $activototal=$request->get('activototal');
+        $deudatotal=$request->get('deudatotal');
+        $venta=$request->get('venta');
+        $cuentapcobrar=$request->get('cuentapcobrar');
+        $activofijo=$request->get('activofijo');
+        $razones->liquidez=razonL($activocorriente,$pasivocorriente);
+        $razones->pruebaacida=ranzonR($activocorriente,$inventario,
         $razones->pasivocorriente);
-        $razones->rotacion=rotacionInvntario($razones->venta,$razones->inventario);
-        $razones->diaspc=dso($razones->cuentapcobrar,$razones->venta);
-        $razones->raf=rotacionAF($razones->venta,$razones->activofijo);
-        $razones->rat=rotacionAT($razones->venta,$razones->activototal);
-        $razones->endeudamiento=razonD($razones->deudatotal,$razones->activototal);
+        $razones->rotacion=rotacionInvntario($venta,$inventario);
+        $razones->diaspc=dso($cuentapcobrar,$venta);
+        $razones->raf=rotacionAF($venta,$activofijo);
+        $razones->rat=rotacionAT($venta,$activototal);
+        $razones->endeudamiento=razonD($deudatotal,$activototal);
+        $razones->save();
         return redirect()->route('razones.index');
     }
 
