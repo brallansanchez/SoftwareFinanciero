@@ -22,7 +22,7 @@ class RazonesController extends Controller
        'razon.deudatotal','razon.venta',
        'razon.cuentapcobrar','razon.activofijo',
      'razon.liquidez','razon.pruebaacida',
-     'razon.endeudamiento','razon.rotacion','razon.diaspc','razon.raf','razon.rat')->paginate(5);
+     'razon.endeudamiento','razon.rotacion','razon.diaspc','razon.raf','razon.rat')->paginate(2);
      return view('razones.index')->with('razones',$razones);
     }
 
@@ -100,35 +100,8 @@ class RazonesController extends Controller
     {
         //
         $razones = Product::FindOrFail($id);
-        $razones = new Razones;
-        $activocorriente=$request->get('activocorriente');
-        $pasivocorriente=$request->get('pasivocorriente');
-        $inventario=$request->get('inventario');
-        $activototal=$request->get('activototal');
-        $deudatotal=$request->get('deudatotal');
-        $venta=$request->get('venta');
-        $cuentapcobrar=$request->get('cuentapcobrar');
-        $activofijo=$request->get('activofijo');
 
-        $razones->activocorriente=$request->get('activocorriente');
-        $razones->pasivocorriente=$request->get('pasivocorriente');
-        $razones->inventario=$request->get('inventario');
-        $razones->activototal=$request->get('activototal');
-        $razones->deudatotal=$request->get('deudatotal');
-        $razones->venta=$request->get('venta');
-        $razones->cuentapcobrar=$request->get('cuentapcobrar');
-        $razones->activofijo=$request->get('activofijo');
-
-        $razones->liquidez=razonL($activocorriente,$pasivocorriente);
-        $razones->pruebaacida=ranzonR($activocorriente,$inventario,$pasivocorriente);
-        $razones->rotacion=rotacionInvntario($venta,$inventario);
-        $razones->diaspc=dso($cuentapcobrar,$venta);
-        $razones->raf=rotacionAF($venta,$activofijo);
-        $razones->rat=rotacionAT($venta,$activototal);
-        $razones->endeudamiento=razonD($deudatotal,$activototal);
-        $razones->save();
-        return
-        view('razones.edit');
+        return view('razones.edit',array('razonez' =>$razones ));
     }
 
     /**
@@ -143,7 +116,6 @@ class RazonesController extends Controller
         //
         $razones = Razones::FindOrFail($id);
         $input = $request->all();
-
         $razones->fill($input)->save();
 
         return redirect()->route('razones.index');
