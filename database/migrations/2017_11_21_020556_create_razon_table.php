@@ -41,5 +41,6 @@ class CreateRazonTable extends Migration
     public function down()
     {
         //
+        Schema::drop('razon');
     }
 }

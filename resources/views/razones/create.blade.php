@@ -65,12 +65,22 @@
                                                      ','class'=>'form-control','placeholder'=>'Digite El Monto de Cuentas por Cobrar'])!!}
                                                 </div>
 
-                 {!!form::submit('Calcular',['name'=>'calcular','id'=>'calcular','content'=>'<span>Calcular</span>','class'=>'btn btn-warning btn-sm m-t-10'])!!}
-          {!!Form::close()!!}
+                 {!!form::submit('Calcular',
+                 ['name'=>'calcular','id'=>'calcular',
+                 'content'=>'<span>Calcular</span>',
+                 'class'=>'btn btn-warning btn-sm m-t-10'])!!}
+                 <button type='button' id='cancelar'
+                  class='btn btn-default btn-sm m-t-10'>Cancelar</button>
+                 {!!Form::close()!!}
 
           </div>
         </div>
-
+        <script>
+          $("#cancelar").click(function(event)
+          {
+              document.location.href = "{{ route('razones.index')}}";
+          });
+        </script>
 
      </div>
    </div>

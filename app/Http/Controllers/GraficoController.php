@@ -16,7 +16,8 @@ class GraficoController extends Controller
     public function index()
     {   $grafico
         //
-        return view('grafico');
+        
+        return view('razones.grafico');
     }
 
     /**

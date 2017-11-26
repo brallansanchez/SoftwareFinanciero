@@ -1,4 +1,8 @@
-<html>
+@extends('layouts.master')
+
+@section('title','Calcular Razones')
+
+@section('content')
 <head>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -53,4 +57,5 @@
 <body>
   <div id="line_top_x"></div>
 </body>
-</html>
+
+@endsection

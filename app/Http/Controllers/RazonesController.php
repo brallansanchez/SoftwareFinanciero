@@ -88,8 +88,8 @@ class RazonesController extends Controller
     public function show($id)
     {
         //
-        $razones = Razones::FindOrFail($id);
-       return view('razones.show')->with('razones',$razones);
+        $razon = Razones::FindOrFail($id);
+         return view('razones.show')->with('razon',$razon);
     }
 
     /**
@@ -131,12 +131,9 @@ class RazonesController extends Controller
      */
     public function destroy($id)
     {
-        //
         $razones = Razones::FindOrFail($id);
         $input = $request->all();
-
-        $razones->fill($input)->destroy();
-
+        $razones->fill($input)->delete();
         return redirect()->route('razones.index');
     }
 }
