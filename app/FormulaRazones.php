@@ -4,7 +4,8 @@ function razonL($activocorriente,$pasivocorriente){
   return $liquidez;
 }
 function ranzonR($activocorriente,$inventario,$pasivocorriente){
-  $pruebaacida=($activocorriente-$inventario)/$pasivocorriente;
+  $numerador=$activocorriente-$inventario;
+  $pruebaacida=$numerador/$pasivocorriente;
   return $pruebaacida;
 }
 function rotacionInvntario($venta,$inventario){
