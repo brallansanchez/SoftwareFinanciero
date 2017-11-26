@@ -20,3 +20,4 @@ Route::group(['middleware'=>['web']], function ()
 	route::resource('razones', 'RazonesController');
   route::resource('dashboard','DashboardController');
 });
+Route::get('nuevoPunto')->post('/punto/nuevo','PuntoEController@nuevoPunto');
