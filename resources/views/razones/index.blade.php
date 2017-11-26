@@ -30,7 +30,7 @@
                   <th>Dias Pendiente de Cobro</th>
                   <th>Rotacion de Activo Fijo</th>
                   <th>Rotacion de Activos Totales</th>
-                  <th>Acciones</th>
+                  <th>Accion</th>
                </thead>
                <tbody>
               @foreach($razones as $razon)
@@ -43,7 +43,11 @@
                      <td>{{$razon->raf}}</td>
                      <td>{{$razon->rat}}</td>
 
-                     <td><a href="{{route('razones.show',$razon)}}">[Eliminar]</a>
+                     <td><button class="btn btn-xs btn-danger" 
+                     style="margin-bottom: 1px;
+                     margin-top: -5px;
+                     margin-right: 8px;padding: 3px 10px;"
+                        href="{{route('razones.show',$razon->idrazon)}}">Eliminar</button>
                     <!-- <a href="{{route('razones.show',$razon)}}">[Eliminar]</a>--></td>
                   </tr>
                   @endforeach
