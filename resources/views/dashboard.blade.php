@@ -4,11 +4,6 @@
 
 @section('content')
 
-<ol class="breadcrumb">
- <li>Principal</li>
- <li class="active">Escritorio</li>
-</ol>
-
    <!-- Main component for a primary marketing message or call to action -->
    <div class="page-header">
      <h1>Herramientas Financieras: Analisis Financiero</h1>

@@ -34,16 +34,14 @@
             <span class="icon-bar">Razones Financieras</span>
             <span class="icon-bar">Punto de Equilibrio</span>
           </button>
-          <a class="navbar-brand" href="#"> <img src="img/logo.png" alt=""/> </a>
+          <a class="navbar-brand" href="dashboard"> <img src="img/logo.png" alt=""/> </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
 
             <li><a href="razones">Razones Financieras</a></li>
             <li><a href="puntoeq">Punto de Equilibrio</a></li>
-
-
-          <!--  <li><a href="market">Marcas</a></li>-->
+            <!--  <li><a href="market">Marcas</a></li>-->
           </ul>
 
         </div><!--/.nav-collapse -->
