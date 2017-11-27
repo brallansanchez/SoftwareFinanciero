@@ -21,6 +21,7 @@ Route::group(['middleware'=>['web']], function ()
 {
 	route::resource('razones', 'RazonesController');
   route::resource('grafico','GraficoController');
+  route::resource('punto','PuntoEquilibrioController');
   route::resource('dashboard','DashboardController');
 });
 //Route::get('nuevoPunto')->post('/punto/nuevo','PuntoEController@nuevoPunto');

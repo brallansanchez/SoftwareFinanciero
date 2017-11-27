@@ -4,7 +4,7 @@
 
 @section('content')
 
-   <!-- Main component for a primary marketing message or call to action -->
+   <!-- Main component for a primary markCeting message or call to action -->
 
    <div class="page-header">
      <h1>Razones Financieras</h1>

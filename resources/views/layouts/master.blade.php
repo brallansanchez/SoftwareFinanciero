@@ -39,7 +39,7 @@
           <ul class="nav navbar-nav">
             <li><a class="active" href="{{url('dashboard')}}">Principal</a></li>
             <li><a href="{{url('razones')}}">Razones Financieras</a></li>
-            <li><a href="{{url('puntoeq')}}">Punto de Equilibrio</a></li>
+            <li><a href="{{url('punto')}}">Punto de Equilibrio</a></li>
             <!--  <li><a href="market">Marcas</a></li>-->
           </ul>
 
