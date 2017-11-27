@@ -119,3 +119,4 @@ class PuntoEquilibrioController extends Controller
         return redirect()->route('punto.index');
     }
 }
+                                           

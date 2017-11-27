@@ -47,6 +47,9 @@
                      style="margin-bottom: 1px;
                      margin-top: -5px; margin-right: 8px;padding: 3px 10px;"
                         href="{{route('punto.show',$punto->idpunto)}}">Eliminar</button>
+                        <button class="btn btn-xs btn-warning"
+                        style="margin-botton: 1px; margin-top: -5px; margin-rigth:8px; padding:3px 10px;"
+                        href="{{route('grafico',$punto->idpunto)}}">Graficar</button>
                     </tr>
                         @endforeach
                      </tbody>
