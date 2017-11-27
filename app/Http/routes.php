@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 //Route::name('nuevoPunto')->post('/punto/nuevo','PuntoEController@nuevoPunto');
@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::group(['middleware'=>['web']], function ()
 {
 	route::resource('razones', 'RazonesController');
+  route::resource('grafico','GraficoController');
   route::resource('dashboard','DashboardController');
 });
 //Route::get('nuevoPunto')->post('/punto/nuevo','PuntoEController@nuevoPunto');

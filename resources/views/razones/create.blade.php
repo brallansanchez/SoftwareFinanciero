@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Calcular Razones')
+@section('title','Lista de Razones')
 
 @section('content')
 <!-- Main component for a primary marketing message or call to action -->
@@ -13,10 +13,9 @@
    <div class="page-header">
      <h1>Razon Nueva</h1>
    </div>
-
+@include('partials.messages')
    <div class="row">
      <div class="col-md-8">
-
         <div class="panel panel-default">
           <div class="panel-heading">
             Nuevo

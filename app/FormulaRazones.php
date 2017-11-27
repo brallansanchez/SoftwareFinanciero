@@ -29,3 +29,15 @@ function razonD($deudatotal,$activototal){
   $endeudamiento=$deudatotal/$activototal;
   return $endeudamiento;
 }
+function ct($costovariable,$costofijo,$cantidad){
+$costototal=($cantidad*$costovariable)+$costofijo;
+return $costototal;
+}
+function  ingresoV($precioventa,$cantidad){
+  $iventa=$precioventa*$cantidad;
+  return $iventa;
+}
+function puntoEquilibrio($precioventa,$costofijo,$costototal){
+$puntoEq=$costofijo/($precioventa-$costofijo);
+return $puntoEq;
+}

@@ -9,7 +9,7 @@
    <div class="page-header">
      <h1>Razones Financieras</h1>
    </div>
-
+@include('partials.messages')
    <div class="row">
      <div class="col-md-8">
         <div class="panel panel-default">
@@ -43,7 +43,7 @@
                      <td>{{$razon->raf}}</td>
                      <td>{{$razon->rat}}</td>
 
-                     <td><button class="btn btn-xs btn-danger" 
+                     <td><button class="btn btn-xs btn-danger"
                      style="margin-bottom: 1px;
                      margin-top: -5px;
                      margin-right: 8px;padding: 3px 10px;"

@@ -20,7 +20,7 @@
             Eliminar
            </div>
           <div class="panel-body">
- {!!Form::open(['route'=>['razon.destroy',$razon->idrazon],'method'=>'DELETE'])!!}
+ {!!Form::open(['route'=>['razones.destroy',$razon->idrazon],'method'=>'DELETE'])!!}
               <div class="form-group">
                <label for="exampleInputPassword1">DESA ELIMINAR ESTE REGISTRO</label>
                    </div>

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use SoftwareFinanciero\Http\Requests;
 use SoftwareFinanciero\Razones;
+use SoftwareFinanciero\Http\Requests\Razones\RazonesCreateRequest;
+use Session;
 
 class RazonesController extends Controller
 {
@@ -45,7 +47,7 @@ class RazonesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RazonesCreateRequest $request)
     {
         //
 
@@ -76,6 +78,7 @@ class RazonesController extends Controller
         $razones->rat=rotacionAT($venta,$activototal);
         $razones->endeudamiento=razonD($deudatotal,$activototal);
         $razones->save();
+        Session::flash('save','Se han registrado los datos para las razones');
         return redirect()->route('razones.index');
     }
 
@@ -113,13 +116,13 @@ class RazonesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RazonesCreateRequest $request, $id)
     {
         //
         $razones = Razones::FindOrFail($id);
         $input = $request->all();
         $razones->fill($input)->save();
-
+        Session::flash('update','Se ha actualizado correctamente');
         return redirect()->route('razones.index');
     }
 
@@ -134,6 +137,7 @@ class RazonesController extends Controller
         $razones = Razones::FindOrFail($id);
         $input = $request->all();
         $razones->fill($input)->delete();
+        Session::flash('delete','Se ha eliminado correctamente');
         return redirect()->route('razones.index');
     }
 }
