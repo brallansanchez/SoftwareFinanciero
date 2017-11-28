@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 use SoftwareFinanciero\Http\Requests;
 use SoftwareFinanciero\PuntoEq;
-use SoftwareFinanciero\GraficoController;
+use Illuminate\Support\Facades\Redirect;
+use Session;
+use DB;
+
 
 class PuntoEquilibrioController extends Controller
 {
@@ -15,6 +18,10 @@ class PuntoEquilibrioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct()
+    {
+
+    }
     public function index()
     {
         $puntos=PuntoEq::select(
@@ -76,8 +83,17 @@ class PuntoEquilibrioController extends Controller
     public function show($id)
     {
         //
-        $punto = PuntoEq::FindOrFail($id);
-        return view('punto.show')->with('punto',$punto);
+        $punto=PuntoEq::select(
+        'punto.idpunto',
+        'punto.costofijo',
+        'punto.costovariable',
+        'punto.costototal',
+        'punto.cantidad',
+        'punto.precioventa',
+        'punto.iventa',
+        'punto.pq')
+        ->get();
+          return View("punto.edit",["punto"=>$punto]);
     }
 
     /**
@@ -88,7 +104,8 @@ class PuntoEquilibrioController extends Controller
      */
     public function edit($id)
     {
-        //
+      return  view("punto.edit", ["punto"=>PuntoEq::findOrFail($id)]);
+
     }
 
     /**
@@ -100,10 +117,16 @@ class PuntoEquilibrioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $puntos = PuntoEq::FindOrFail($id);
-        $input=$request->all();
-        $puntos->fill($input)->save();
-        return redirect()->route('punto.index');
+      $affectedRows = PuntoEq::where('idpunto','=',$id)
+              ->update([
+
+                  'costofijo'=>$request->get('costofijo'),
+                  'costovariable'=>$request->get('costovariable'),
+                  'precioventa'=>$request->get('precioventa'),
+                  'cantidad'=>$request->get('cantidad'),
+                ]
+              );
+              return Redirect::to('index');
     }
 
     /**
@@ -114,9 +137,7 @@ class PuntoEquilibrioController extends Controller
      */
     public function destroy($id)
     {
-        $puntos=PuntoEq::FindOrFail($id);
-        $input=$request->all();
-        $puntos->fill($input)->delete();
-        return redirect()->route('punto.index');
+      $affectedRows = PuntoEq::where('idpunto','=',$id)->delete();
+      return Redirect::to('punto');
     }
 }

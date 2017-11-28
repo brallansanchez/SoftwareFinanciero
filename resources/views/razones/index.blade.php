@@ -44,17 +44,12 @@
                      <td>{{$razon->rat}}</td>
 
                      <td>
-                       <button class="btn btn-xs btn-warning"
-                       style="margin-bottom: 1px;
-                       margin-top: -5px;
-                       margin-right: 8px;padding: 3px 10px;"
-                          href="{{route('razones.edit',$razon->idrazon)}}">Editar</button>
-                      <button class="btn btn-xs btn-danger"
-                     style="margin-bottom: 1px;
-                     margin-top: -5px;
-                     margin-right: 8px;padding: 3px 10px;"
-                        href="{{route('razones.show',$razon->idrazon)}}">Eliminar</button>
+                       <a href="{{URL::action('RazonesController@edit',
+             $razon->idrazon)}}"><button class="btn btn-warning btn-sm m-t-10"><i class="glyphicon  glyphicon-edit"></i> Editar</button></a>
+                         <a href="" data-target="#modal-delete-{{$razon->idrazon}}" data-toggle="modal"><button class="btn btn-danger btn-sm m-t-10">
+                         <i class="glyphicon glyphicon-remove"></i> Eliminar</button></a>
                     </td>
+                    @include('razones.modal')
                   </tr>
                   @endforeach
                </tbody>

@@ -8,6 +8,7 @@ use SoftwareFinanciero\Http\Requests;
 use SoftwareFinanciero\Razones;
 use SoftwareFinanciero\Http\Requests\Razones\RazonesCreateRequest;
 use Session;
+use Illuminate\Support\Facades\Redirect;
 use DB;
 
 class RazonesController extends Controller
@@ -17,6 +18,10 @@ class RazonesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct()
+    {
+
+    }
     public function index()
     {
 
@@ -92,8 +97,12 @@ class RazonesController extends Controller
     public function show($id)
     {
         //
-        $razon = Razones::FindOrFail($id);
-         return view('razones.show')->with('razon',$razon);
+        $razon=DB::table('razon')
+          ->select('activocorriente','pasivocorriente','inventario','activototal',
+          'deudatotal','venta','cuentapcobrar','activofijo','liquidez','pruebaacida',
+          'endeudamiento','rotacion','diaspc','raf','rat')
+          ->get();
+          return view("razones.edit",["razon"=>$razon]);
     }
 
     /**
@@ -117,14 +126,21 @@ class RazonesController extends Controller
      */
     public function update(RazonesCreateRequest $request, $id)
     {
+      $affectedRows = Razon::where('idrazon','=',$id)
+              ->update([
 
-        $razones = Razones::FindOrFail($id);
-        $input = $request->all();
-        $razones->fill($input)->save();
-        Session::flash('update','Se ha actualizado correctamente');
-        return redirect()->route('razones.index');
+                  'activocorriente'=>$request->get('activocorriente'),
+                  'pasivocorriente'=>$request->get('pasivocorriente'),
+                  'inventario'=>$request->get('inventario'),
+                  'activototal'=>$request->get('activototal'),
+                  'deudatotal'=>$request->get('deudatotal'),
+                  'venta'=>$request->get('venta'),
+                  'cuentapcobrar'=>$request->get('cuentapcobrar'),
+                  'activofijo'=>$request->get('activofijo'),
 
-
+                ]
+              );
+              return Redirect::to('razones');
     }
 
     /**
@@ -135,10 +151,7 @@ class RazonesController extends Controller
      */
     public function destroy($id)
     {
-        $razones = Razones::FindOrFail($id);
-        $input = $request->all();
-        $razones->fill($input)->delete();
-        Session::flash('delete','Se ha eliminado correctamente');
-        return redirect()->route('razones.index');
+      $affectedRows = Razones::where('idrazon','=',$id)->delete();
+      return Redirect::to('razones');
     }
 }

@@ -17,11 +17,11 @@
              Lista de resultados
              <p class="navbar-text navbar-right" style=" margin-top: 1px;">
                 <button type="button" id='nuevo' name='nuevo'
-                 class="btn btn-warning navbar-btn"
+                 class="btn btn-info navbar-btn"
                   style="margin-bottom: 1px;
                   margin-top: -5px;
                   margin-right: 8px;padding: 3px 20px;">Nuevo</button>
-                
+
              </p>
            </div>
           <div class="panel-body">
@@ -48,25 +48,21 @@
                      <td>{{$punto->costototal}}</td>
                      <td>{{$punto->pq}}</td>
 
-                     <td><button class="btn btn-xs btn-danger"
-                     style="margin-bottom: 1px;
-                     margin-top: -5px; margin-right: 8px;padding: 3px 10px;"
-                        href="{{route('punto.show',$punto->idpunto)}}">Eliminar</button>
+                     <td>
+                       <a href="{{URL::action('PuntoEquilibrioController@edit',
+             $punto->idpunto)}}"><button class="btn btn-warning btn-sm m-t-10"><i class="glyphicon  glyphicon-edit"></i> Editar</button></a>
+                         <a href="" data-target="#modal-delete-{{$punto->idpunto}}" data-toggle="modal"><button class="btn btn-danger btn-sm m-t-10">
+                         <i class="glyphicon glyphicon-remove"></i> Eliminar</button></a>
+                    </td>
+                    @include('punto.modal')
 
                     </tr>
                         @endforeach
                      </tbody>
-
-
              </table>
-             <div class='text-center'>
-
-           </div>
-
-          </div>
+            </div>
         </div>
-
-
+      
      </div>
    </div>
 <script>
