@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use SoftwareFinanciero\Http\Requests;
 use SoftwareFinanciero\PuntoEq;
+use SoftwareFinanciero\GraficoController;
 
 class PuntoEquilibrioController extends Controller
 {
@@ -119,4 +120,3 @@ class PuntoEquilibrioController extends Controller
         return redirect()->route('punto.index');
     }
 }
-                                           

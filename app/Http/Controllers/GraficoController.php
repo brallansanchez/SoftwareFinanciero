@@ -5,6 +5,7 @@ namespace SoftwareFinanciero\Http\Controllers;
 use Illuminate\Http\Request;
 
 use SoftwareFinanciero\Http\Requests;
+use SoftwareFinanciero\PuntoEq;
 
 class GraficoController extends Controller
 {
@@ -14,10 +15,18 @@ class GraficoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {  
+    {
         //
+        $grfl=PuntoEq::select('punto.idpunto',
+        'punto.costofijo',
+        'punto.costovariable',
+        'punto.costototal',
+        'punto.cantidad',
+        'punto.precioventa',
+        'punto.iventa',
+        'punto.pq')->get();
 
-        return view('grafico');
+        return view('grafico',['grfl'=>$grfl]);
     }
 
     /**

@@ -33,6 +33,7 @@
             <span class="icon-bar">Menu Principal</span>
             <span class="icon-bar">Razones Financieras</span>
             <span class="icon-bar">Punto de Equilibrio</span>
+            <span class="icon-bar">Graficar</span>
           </button>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -40,6 +41,8 @@
             <li><a class="active" href="{{url('dashboard')}}">Principal</a></li>
             <li><a href="{{url('razones')}}">Razones Financieras</a></li>
             <li><a href="{{url('punto')}}">Punto de Equilibrio</a></li>
+            <li><a href="{{url('grafico')}}">Graficar</a></li>
+
             <!--  <li><a href="market">Marcas</a></li>-->
           </ul>
 
