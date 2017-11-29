@@ -47,7 +47,7 @@
 
          <div class="form-group">
                <button class="btn btn-primary" >Guardar</button>
-               <a href="{{url('punto.index')}}" class="btn btn-default btn-sm m-t-10" role="button"> Cancelar</a>
+               <a href="{{url('index')}}" class="btn btn-default btn-sm m-t-10" role="button"> Cancelar</a>
          </div>
 
        </div>

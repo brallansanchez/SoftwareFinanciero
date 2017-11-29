@@ -46,7 +46,7 @@
                      <td>
                        <a href="{{URL::action('RazonesController@edit',
              $razon->idrazon)}}"><button class="btn btn-warning btn-sm m-t-10"><i class="glyphicon  glyphicon-edit"></i> Editar</button></a>
-                         <a href="" data-target="#modal-delete-{{$razon->idrazon}}" data-toggle="modal"><button class="btn btn-danger btn-sm m-t-10">
+                         <a href="razones.modal" data-target="#modal-delete-{{$razon->idrazon}}" data-toggle="modal"><button class="btn btn-danger btn-sm m-t-10">
                          <i class="glyphicon glyphicon-remove"></i> Eliminar</button></a>
                     </td>
                     @include('razones.modal')

@@ -118,15 +118,17 @@ class PuntoEquilibrioController extends Controller
     public function update(Request $request, $id)
     {
       $affectedRows = PuntoEq::where('idpunto','=',$id)
+
               ->update([
 
                   'costofijo'=>$request->get('costofijo'),
                   'costovariable'=>$request->get('costovariable'),
                   'precioventa'=>$request->get('precioventa'),
                   'cantidad'=>$request->get('cantidad'),
+
                 ]
               );
-              return Redirect::to('index');
+              return Redirect::to('punto');
     }
 
     /**

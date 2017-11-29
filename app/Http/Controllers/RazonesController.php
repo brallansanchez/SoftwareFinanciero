@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use SoftwareFinanciero\Http\Requests;
 use SoftwareFinanciero\Razones;
-use SoftwareFinanciero\Http\Requests\Razones\RazonesCreateRequest;
 use Session;
 use Illuminate\Support\Facades\Redirect;
 use DB;
@@ -53,11 +52,11 @@ class RazonesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RazonesCreateRequest $request)
+    public function store(Request $request)
     {
         //
 
-        $razones = new Razones;
+        $razon = new Razones;
     	  $activocorriente=$request->get('activocorriente');
         $pasivocorriente=$request->get('pasivocorriente');
         $inventario=$request->get('inventario');
@@ -67,24 +66,23 @@ class RazonesController extends Controller
         $cuentapcobrar=$request->get('cuentapcobrar');
         $activofijo=$request->get('activofijo');
 
-        $razones->activocorriente=$request->get('activocorriente');
-        $razones->pasivocorriente=$request->get('pasivocorriente');
-        $razones->inventario=$request->get('inventario');
-        $razones->activototal=$request->get('activototal');
-        $razones->deudatotal=$request->get('deudatotal');
-        $razones->venta=$request->get('venta');
-        $razones->cuentapcobrar=$request->get('cuentapcobrar');
-        $razones->activofijo=$request->get('activofijo');
+        $razon->activocorriente=$request->get('activocorriente');
+        $razon->pasivocorriente=$request->get('pasivocorriente');
+        $razon->inventario=$request->get('inventario');
+        $razon->activototal=$request->get('activototal');
+        $razon->deudatotal=$request->get('deudatotal');
+        $razon->venta=$request->get('venta');
+        $razon->cuentapcobrar=$request->get('cuentapcobrar');
+        $razon->activofijo=$request->get('activofijo');
 
-        $razones->liquidez=razonL($activocorriente,$pasivocorriente);
-        $razones->pruebaacida=ranzonR($activocorriente,$inventario,$pasivocorriente);
-        $razones->rotacion=rotacionInvntario($venta,$inventario);
-        $razones->diaspc=dso($cuentapcobrar,$venta);
-        $razones->raf=rotacionAF($venta,$activofijo);
-        $razones->rat=rotacionAT($venta,$activototal);
-        $razones->endeudamiento=razonD($deudatotal,$activototal);
-        $razones->save();
-        Session::flash('save','Se han registrado los datos para las razones');
+        $razon->liquidez=razonL($activocorriente,$pasivocorriente);
+        $razon->pruebaacida=ranzonR($activocorriente,$inventario,$pasivocorriente);
+        $razon->rotacion=rotacionInvntario($venta,$inventario);
+        $razon->diaspc=dso($cuentapcobrar,$venta);
+        $razon->raf=rotacionAF($venta,$activofijo);
+        $razon->rat=rotacionAT($venta,$activototal);
+        $razon->endeudamiento=razonD($deudatotal,$activototal);
+        $razon->save();
         return redirect()->route('razones.index');
     }
 
@@ -97,12 +95,24 @@ class RazonesController extends Controller
     public function show($id)
     {
         //
-        $razon=DB::table('razon')
-          ->select('activocorriente','pasivocorriente','inventario','activototal',
-          'deudatotal','venta','cuentapcobrar','activofijo','liquidez','pruebaacida',
-          'endeudamiento','rotacion','diaspc','raf','rat')
-          ->get();
-          return view("razones.edit",["razon"=>$razon]);
+        $razones= Razones::select(
+          'razon.activocorriente',
+          'razon.pasivocorriente',
+          'razon.inventario',
+          'razon.activototal',
+          'razon.deudatotal',
+          'razon.venta',
+          'razon.cuentapcobrar',
+          'razon.activofijo',
+        'razon.liquidez',
+        'razon.pruebaacida',
+        'razon.endeudamiento',
+        'razon.rotacion'
+        ,'razon.diaspc',
+        'razon.raf',
+        'razon.rat')
+        ->get();
+          return view("razones.edit",["razones"=>$razones]);
     }
 
     /**
@@ -114,7 +124,7 @@ class RazonesController extends Controller
     public function edit($id)
     {
         //
-        return  view("razones.edit", ["razones"=>Razones::findOrFail($id)]);
+        return  view("razones.edit", ["razon"=>Razones::findOrFail($id)]);
     }
 
     /**
@@ -124,9 +134,9 @@ class RazonesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RazonesCreateRequest $request, $id)
+    public function update(Request $request, $id)
     {
-      $affectedRows = Razon::where('idrazon','=',$id)
+      $affectedRows = Razones::where('idrazon','=',$id)
               ->update([
 
                   'activocorriente'=>$request->get('activocorriente'),

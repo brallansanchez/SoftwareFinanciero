@@ -12,8 +12,8 @@
      <h1>Editar Datos de Razones</h1>
    </div>
 
-{!!Form::model($razon,['method'=>'PATCH','route'=>['razon.update',$razon->idrazon]])!!}
-{{Form::token()}}
+   {!!Form::model($razon,['method'=>'PATCH','route'=>['razon.update',$razon->idrazon]])!!}
+   {{Form::token()}}
 
 <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -26,7 +26,7 @@
                class="form-control" placeholder="Digite el activo Circulante">
          </div>
          <div class="form-group">
-               <label for="activocorriente">Activo Fijo</label>
+               <label for="activofijo">Activo Fijo</label>
                <input type="text" name="activofijo"
                required value="{{$razon->activofijo}}"
                class="form-control" placeholder="Digite el activo Fijo">
@@ -68,13 +68,11 @@
                class="form-control" placeholder="Digite la Cuenta por Cobrar">
          </div>
 
-
-
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
          <div class="form-group">
                <button class="btn btn-primary" type="submit"><i class="btn btn-warning btn-sm m-t-10'"></i> Guardar</button>
-               <a href="{{url('razones/index')}}" class="class='btn btn-default btn-sm m-t-10'" role="button"><i></i> Cancelar</a>
+               <a href="{{url('index')}}" class="class='btn btn-default btn-sm m-t-10'" role="button"><i></i> Cancelar</a>
          </div>
 
        </div>
