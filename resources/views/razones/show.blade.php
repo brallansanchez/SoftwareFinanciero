@@ -24,7 +24,7 @@
               <div class="form-group">
                <label for="exampleInputPassword1">DESA ELIMINAR ESTE REGISTRO</label>
                    </div>
-          <!--   <div class="form-group">
+          <div class="form-group">
                 {!!form::label('Activo Circulante')!!}
                 {!!$razon->activocorriente!!}
              </div>
@@ -56,7 +56,7 @@
                <div class="form-group">
                 {!!form::label('Activo Fijo')!!}
                 {!!$razon->activofijo!!}
-             </div>-->
+             </div>
              <div class="form-group">
                 {!!form::label('Razon de Liquidez')!!}
                 {!!$razon->liquidez!!}

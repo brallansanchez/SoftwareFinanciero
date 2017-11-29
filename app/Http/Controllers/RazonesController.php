@@ -104,9 +104,7 @@ class RazonesController extends Controller
     public function edit($id)
     {
         //
-        $razones = Product::FindOrFail($id);
-
-        return view('razones.edit',array('razonez' =>$razones ));
+        return  view("razones.edit", ["razones"=>Razones::findOrFail($id)]);
     }
 
     /**
@@ -118,12 +116,14 @@ class RazonesController extends Controller
      */
     public function update(RazonesCreateRequest $request, $id)
     {
-        //
+
         $razones = Razones::FindOrFail($id);
         $input = $request->all();
         $razones->fill($input)->save();
         Session::flash('update','Se ha actualizado correctamente');
         return redirect()->route('razones.index');
+
+
     }
 
     /**

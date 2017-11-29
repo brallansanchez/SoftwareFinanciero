@@ -11,7 +11,7 @@
 
    <div class="row">
      <div class="col-md-8">
-        <img src="img/estadistica.png" alt="" />
+        <img src="img/estadistica.png" class="img-thumbnail" alt="Cinque Terre"/>
      </div>
    </div>
 

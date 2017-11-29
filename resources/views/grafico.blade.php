@@ -40,14 +40,16 @@
       var options = {
         chart: {
           title: 'Representacion Grafica del Punto de Equilibrio',
-          subtitle: 'en millones de dolares (USD)'
+          subtitle: 'en miles de dolares (USD)'
+
         },
-        width: 900,
-        height: 500,
+        width: 1200,
+        height: 600,
         axes: {
           x: {
-            0: {side: 'top'}
-          }
+            0: {side: 'bottom'}
+          },
+
         }
       };
 

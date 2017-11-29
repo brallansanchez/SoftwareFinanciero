@@ -16,7 +16,7 @@
           <div class="panel-heading">
              Lista de resultados
              <p class="navbar-text navbar-right" style=" margin-top: 1px;">
-                <button type="button" id='nuevo' name='nuevo' class="btn btn-warning navbar-btn" style="margin-bottom: 1px; margin-top: -5px;margin-right: 8px;padding: 3px 20px;">Nuevo</button>
+                <button type="button" id='nuevo' name='nuevo' class="btn btn-info navbar-btn" style="margin-bottom: 1px; margin-top: -5px;margin-right: 8px;padding: 3px 20px;">Nuevo</button>
              </p>
            </div>
           <div class="panel-body">
@@ -43,12 +43,18 @@
                      <td>{{$razon->raf}}</td>
                      <td>{{$razon->rat}}</td>
 
-                     <td><button class="btn btn-xs btn-danger"
+                     <td>
+                       <button class="btn btn-xs btn-warning"
+                       style="margin-bottom: 1px;
+                       margin-top: -5px;
+                       margin-right: 8px;padding: 3px 10px;"
+                          href="{{route('razones.edit',$razon->idrazon)}}">Editar</button>
+                      <button class="btn btn-xs btn-danger"
                      style="margin-bottom: 1px;
                      margin-top: -5px;
                      margin-right: 8px;padding: 3px 10px;"
                         href="{{route('razones.show',$razon->idrazon)}}">Eliminar</button>
-                    <!-- <a href="{{route('razones.show',$razon)}}">[Eliminar]</a>--></td>
+                    </td>
                   </tr>
                   @endforeach
                </tbody>

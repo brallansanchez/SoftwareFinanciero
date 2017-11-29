@@ -38,10 +38,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a class="active" href="{{url('dashboard')}}">Principal</a></li>
-            <li><a href="{{url('razones')}}">Razones Financieras</a></li>
-            <li><a href="{{url('punto')}}">Punto de Equilibrio</a></li>
-            <li><a href="{{url('grafico')}}">Graficar</a></li>
+            <li><a class="glyphicon glyphicon-home" style="font-size: 20px" href="{{url('dashboard')}}"> Principal</a></li>
+            <li><a class="glyphicon glyphicon-usd" style="font-size: 20px" href="{{url('razones')}}"> Razones Financieras</a></li>
+            <li><a class="glyphicon glyphicon-usd" style="font-size: 20px" href="{{url('punto')}}"> Punto de Equilibrio</a></li>
+            <li><a class="glyphicon glyphicon-signal" style="font-size: 20px" href="{{url('grafico')}}"> Graficar</a></li>
 
             <!--  <li><a href="market">Marcas</a></li>-->
           </ul>

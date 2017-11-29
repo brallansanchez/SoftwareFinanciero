@@ -23,7 +23,7 @@
             Editar
            </div>
           <div class="panel-body">
- {!!Form::model($razon,['route'=>['razones.update',$razon->id],'method'=>'PUT'])!!}
+ {!!Form::model($razon,['route'=>['razones.update',$razon->idrazon],'method'=>'PATH'])!!}
 
 
  	      <div class="form-group">
