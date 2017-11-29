@@ -8,6 +8,7 @@ use SoftwareFinanciero\Http\Requests;
 use SoftwareFinanciero\Razones;
 use SoftwareFinanciero\Http\Requests\Razones\RazonesCreateRequest;
 use Session;
+use DB;
 
 class RazonesController extends Controller
 {
